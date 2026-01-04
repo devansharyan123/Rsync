@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
+
 import {prisma}  from "@/lib/prisma";
 
 const handler = NextAuth({
@@ -7,7 +8,9 @@ const handler = NextAuth({
     session: {
         strategy : "database",
     },
-    providers: [],
+    providers: [
+    
+    ],
     secret : process.env.NEXTAUTH_SECRET
 })
 
