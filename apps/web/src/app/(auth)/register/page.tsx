@@ -41,9 +41,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 px-4">
+    <div className="flex min-h-screen items-center justify-center bg-gray-950 px-4">
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+        <div className="bg-gray-900 rounded-2xl shadow-xl border border-gray-800 overflow-hidden">
           {/* Header Section */}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-10 text-center">
             <h1 className="text-3xl font-bold text-white mb-2">Create Account</h1>
@@ -64,7 +64,7 @@ export default function RegisterPage() {
             <div className="space-y-4">
               {/* Name Input */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Full Name
                 </label>
                 <input
@@ -73,13 +73,13 @@ export default function RegisterPage() {
                   type="text"
                   placeholder="John Doe"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 placeholder:text-gray-400"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 placeholder:text-gray-500"
                 />
               </div>
 
               {/* Email Input */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                   Email Address
                 </label>
                 <input
@@ -88,13 +88,13 @@ export default function RegisterPage() {
                   type="email"
                   placeholder="you@example.com"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 placeholder:text-gray-400"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 placeholder:text-gray-500"
                 />
               </div>
 
               {/* Password Input */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
                   Password
                 </label>
                 <input
@@ -103,7 +103,7 @@ export default function RegisterPage() {
                   type="password"
                   placeholder="••••••••"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 placeholder:text-gray-400"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 placeholder:text-gray-500"
                 />
               </div>
             </div>
@@ -130,10 +130,10 @@ export default function RegisterPage() {
             {/* Divider */}
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200"></div>
+                <div className="w-full border-t border-gray-700"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white text-gray-500">Already a member?</span>
+                <span className="px-4 bg-gray-900 text-gray-400">Already a member?</span>
               </div>
             </div>
 
@@ -153,11 +153,11 @@ export default function RegisterPage() {
         </div>
 
         {/* Terms */}
-        <p className="text-center text-xs text-gray-500 mt-6 px-8">
+        <p className="text-center text-xs text-gray-400 mt-6 px-8">
           By signing up, you agree to our{" "}
-          <a href="#" className="text-blue-600 hover:underline">Terms of Service</a>
+          <a href="#" className="text-blue-400 hover:underline">Terms of Service</a>
           {" "}and{" "}
-          <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>
+          <a href="#" className="text-blue-400 hover:underline">Privacy Policy</a>
         </p>
       </div>
     </div>
