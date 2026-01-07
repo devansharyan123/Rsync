@@ -1,14 +1,16 @@
-import { getServerSession } from "next-auth";
+import { signOut } from "next-auth/react";
+import { getServerSession  } from "next-auth";
 import { redirect } from "next/navigation";
+import { authOptions } from "../../api/auth/[...nextauth]/route"; // Import options
+import LogoutButton from "@/components/logout-button";
 
-export default async function DashboardPage(){
+export default async function DashboardPage() {
+    // You MUST pass authOptions here for database sessions to work
+    const session = await getServerSession(authOptions);
 
-    const session = await getServerSession();
-
-    if(!session){
-        redirect("/signin")
+    if (!session) {
+        redirect("/signin");
     }
-
     return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-4xl mx-auto">
@@ -22,6 +24,7 @@ export default async function DashboardPage(){
           <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
             New Recording
           </button>
+          <LogoutButton />
         </header>
 
         {/* Placeholder for future Video List component */}

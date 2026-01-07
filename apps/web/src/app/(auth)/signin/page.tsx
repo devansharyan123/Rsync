@@ -1,14 +1,21 @@
 "use client";
-import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { signIn  , useSession , signOut} from "next-auth/react";
+import { useState , useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function SignInPage(){
 
     const router = useRouter();
+    const { data: session, status } = useSession();
     const [loading , setLoading] = useState(false);
     const [error , setError]     = useState("");
+
+    useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/dashboard");
+    }
+  }, [status, router]);
 
     const handleSubmit = async (e : React.FormEvent<HTMLFormElement>) =>{
 
@@ -35,6 +42,10 @@ export default function SignInPage(){
             router.refresh()
         }
     };
+
+    if (status === "loading" || status === "authenticated") {
+    return <div className="flex h-screen items-center justify-center">Loading...</div>;
+  }
 
     return (
     <div className="flex min-h-screen items-center justify-center bg-gray-950">
