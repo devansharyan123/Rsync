@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useState , useEffect} from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -37,9 +37,22 @@ export default function RegisterPage() {
         const msg = await res.text();
         throw new Error(msg || "Something went wrong");
       }
+      
+      const loginRes = await signIn("credentials", {
+        email,
+        password,
+        redirect: false, // Handle redirect manually
+      });
 
-      // If success, send them to login
-      router.push("/signin");
+      if (loginRes?.error) {
+        // If auto-login fails, send them to sign-in as a fallback
+        router.push("/signin");
+      } else {
+        // Success: Go straight to dashboard
+        router.push("/dashboard");
+        router.refresh();
+      }
+
     } catch (err: any) {
       setError(err.message);
     } finally {
