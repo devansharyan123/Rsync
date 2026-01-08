@@ -2,24 +2,24 @@ import { app, BrowserWindow } from 'electron';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// These two lines are required to replace __dirname when using "type": "module"
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 500,
-    height: 700,
+    width: 500,  // Wider to fit the new design
+    height: 650, // Taller to fit all content
     frame: false,          
-    transparent: true,      
-    alwaysOnTop: true,      
+    transparent: false,      
+    alwaysOnTop: true,
+    resizable: false, // Keeps the sleek look consistent
+    backgroundColor: '#111827', // Dark background
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     },
   });
 
-  // Load the Next.js server running on 3001
   win.loadURL('http://localhost:3001');
 }
 
